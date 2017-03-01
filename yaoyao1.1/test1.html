@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>tset1.1</title>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+    </style>
+</head>
+<body>
+    <div>名称
+        <input id="input1" type="text">
+        <button id="button1">查询</button>
+        <div id="div1" style="display:none"></div>
+    </div>
+    <script type="text/javascript">
+   $(document).ready(function(){
+    var button1 = $('#button1'),
+        div1 = $('#div1');
+        button1.click(function(){
+        var len = 0,
+            input1 = $('#input1').val();
+            for (var i = 0; i < input1.length; i++) {
+                if (input1[i].match(/[^\x00-\xff]/ig) != null) //全角 
+                    len += 2;
+                else
+                    len += 1;
+            }
+        if (len == 0) {
+            div1.css('display','block');   
+            div1.html("姓名不能为空");
+        } else if(len<4 || len>16) {
+            div1.css('display','block');   
+            div1.html("必填长度为4~16个字符");
+        } else{
+            div1.css('display','block');   
+            div1.html("姓名格式正确");
+        }
+        })
+    })
+    </script>
+</body>
+</html>
