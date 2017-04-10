@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html" charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>tset1.1</title>
+    <script src="http://libs.baidu.com/jquery/1.9.0/jquery.min.js"></script>
+    </style>
+</head>
+<body>
+    <div>名称
+        <label><input name="Fruit" type="radio" value="" />在校生</label> 
+		<label><input name="Fruit" type="radio" value="" />非在校生</label>
+		<div>学校</div>
+		<select id="Level_one">
+		  <option value ="0">北京</option>
+		  <option value ="1">南京</option>
+		  <option value="2">上海</option>
+		</select> 
+		<select class="Level_two">
+		  <option>北京大学</option>
+		  <option>清华大学</option>
+		  <option>北京艺术学院</option>
+		</select>
+		<select class="Level_two" style="display:none;">
+		  <option>南京大学</option>
+		  <option>东南大学</option>
+		  <option>南京艺术学院</option>
+		</select>
+		<select class="Level_two" style="display:none;">
+		  <option>上海大学</option>
+		  <option>复旦大学</option>
+		  <option>上海艺术学院</option>
+		</select>
+		<div>
+			<span>就业单位</span>
+			<input type="text">
+		</div>
+    </div>
+    <script type="text/javascript">
+   	$(document).ready(function(){
+   		$('#Level_one').change(function(){
+   			var i = this.value;
+            $(".Level_two").hide();
+            $($(".Level_two")[i]).show()
+   		})
+
+    })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title> test1 </title>
+    <style type="text/css">
+    </style>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+    function Observe(data) {
+        this.data = data;
+        this.map(data)// 遍历这个对象的键值
+    }
+    Observe.prototype = {
+        constructor : Observe,
+        map : function(data) {
+            for(key in data){
+                this.convert(key,data[key]);
+            }
+        },
+        // 给每一个键，也说是每一个属性都绑定上属于自己的get和set。不知道这样理解对不对
+        convert : function(key,value) {
+            Object.defineProperty(this.data,key,{
+                get :　function(){
+                    console.log('you visited me!');
+                    return name;
+                },
+                set : function(value) {
+                    console.log('you change me!');
+                    name = value;
+                }
+            })
+        }
+
+    }
+
+    var app1 = new Observe({// 直接传入一个对象
+        name: 'youngwind',
+        age: 25
+    });
+
+    app1.data.name; // 实现访问
+    app1.data.age = 100; // 实现改变
+</script>
+</html>

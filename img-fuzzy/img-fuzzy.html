@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title> animation </title>
+    <style type="text/css">
+    /**/
+    div {margin:20px 0;}
+    #animate_1 {position:absolute; background-color:red;top:100px;width:500px;}
+    @-webkit-keyframes mycolor {
+        0% {
+            background-color:red;
+            -webkit-transform: rotate(0deg);
+        }
+        40% {
+            background-color:darkblue;
+            -webkit-transform: rotate(90deg);
+        }
+        70% {
+            background-color:yellow;
+            -webkit-transform: rotate(180deg);
+        }
+        100% {
+            background-color:red;
+            -webkit-transform:rotate(270deg);
+        }
+    
+    }
+    #animate_1:hover{
+        -webkit-animation: mycolor 5s linear infinite
+    }
+    
+    </style>
+</head>
+<body>
+    <div id="animate_1">animation_1</div>
+</body>
+</html>
